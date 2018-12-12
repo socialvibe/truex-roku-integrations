@@ -1,56 +1,53 @@
 <img src="media/image1.png" style="width:2.08333in;height:0.46875in" />
 
-*TruexAdRenderer Roku Documentation*
-
+# TruexAdRenderer Roku Documentation
 *Version 0.9.0*
 
-*Updated Dec 10, 2018*
+## Contents
 
-**[1. Overview](#overview) 1**
+* [Overview](#overview)
 
-**[2. Product Flows](#product-flows) 2**
+* [Product Flows](#product-flows)
 
-**[3. How to use TruexAdRenderer](#how-to-use-truexadrenderer) 4**
+* [How to use TruexAdRenderer](#how-to-use-truexadrenderer)
 
-> [3.1 When to show True\[X\]](#when-to-show-truex) 4
->
-> [3.2 Handling Events from
-> TruexAdRenderer](#handling-events-from-truexadrenderer) 5
->
-> [3.3 Handling Ad Elimination](#handling-ad-elimination) 5
+** [When to show True\[X\]](#when-to-show-truex)
 
-**[4. TruexAdRenderer Roku API](#truexadrenderer-roku-api) 6**
+** [Handling Events from TruexAdRenderer](#handling-events-from-truexadrenderer)
 
-> [4.1 Reference to Truex Component
-> Library](#reference-to-truex-component-library) 6
->
-> [4.2 TruexAdRenderer Input Events](#truexadrenderer-input-events) 6
->
-> [4.2.1 init](#init) 6
->
-> [4.2.2 start](#start) 7
->
-> [4.3 TruexAdRenderer Output Events](#truexadrenderer-output-events) 7
->
-> [4.3.1 adStarted](#adstarted) 7
->
-> [4.3.2 adCompleted](#adcompleted) 8
->
-> [4.3.3 adError](#aderror) 8
->
-> [4.3.4 noAdsAvailable](#noadsavailable) 9
->
-> [4.3.5 adFreePod](#adfreepod) 9
->
-> [4.3.7 optIn (optional)](#optin-optional) 9
->
-> [4.3.8 optOut (optional)](#optout-optional) 10
->
-> [4.3.9 skipCardShown (optional)](#skipcardshown-optional) 10
->
-> [4.3.10 userCancel (optional)](#usercancel-optional) 10
->
-> [4.3.11 userCancelStream (optional)](#usercancelstream-optional) 11
+** [Handling Ad Elimination](#handling-ad-elimination)
+
+* [TruexAdRenderer Roku API](#truexadrenderer-roku-api)
+
+** [Reference to Truex Component Library](#reference-to-truex-component-library)
+
+** [TruexAdRenderer Input Events](#truexadrenderer-input-events)
+
+*** [4.2.1 init](#init)
+
+*** [4.2.2 start](#start)
+
+** [TruexAdRenderer Output Events](#truexadrenderer-output-events)
+
+*** [4.3.1 adStarted](#adstarted)
+
+*** [4.3.2 adCompleted](#adcompleted)
+
+*** [4.3.3 adError](#aderror)
+
+*** [4.3.4 noAdsAvailable](#noadsavailable)
+
+*** [4.3.5 adFreePod](#adfreepod)
+
+*** [4.3.7 optIn (optional)](#optin-optional)
+
+*** [4.3.8 optOut (optional)](#optout-optional) 
+
+*** [4.3.9 skipCardShown (optional)](#skipcardshown-optional) 
+
+*** [4.3.10 userCancel (optional)](#usercancel-optional) 
+
+*** [4.3.11 userCancelStream (optional)](#usercancelstream-optional) 
 
 1. Overview
 ===========

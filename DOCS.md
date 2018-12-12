@@ -1,6 +1,7 @@
 <img src="media/image1.png" style="width:2.08333in;height:0.46875in" />
 
 # TruexAdRenderer Roku Documentation
+
 *Version 0.9.0*
 
 ## Contents
@@ -202,33 +203,23 @@ hosting channel to add reference to the component library in order for
 it to be used, for instance via the following reference added to your
 channel’s main scene:
 
-> &lt;ComponentLibrary id="TruexAdLibrary"
-> uri="http://static.truex.com.s3.amazonaws.com/roku/TruexAdRenderer-Roku-v0.9.0.pkg"
-> /&gt;
+    <ComponentLibrary id="TruexAdLibrary" uri="http://static.truex.com.s3.amazonaws.com/roku/TruexAdRenderer-Roku-v0.9.0.pkg"/>
 
 ### TruexAdRenderer Input Events
 
 #### init
 
-> m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
->
-> m.tar.observeFieldScoped("event", "handleTarEvent")
->
-> m.tar.observeFieldScoped("request", "handleTarPlaybackRequest")
->
-> m.tar.action = {
->
-> type : "init",
->
-> creativeURL : "&lt;creative URL returned by SSAI&gt;",
->
-> adParameters : "&lt;Ad parameters associative array as returned by
-> SSAI&gt;",
->
-> slotType : "&lt;the type of the current ad pod&gt;"
->
-> }
->
+    m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
+    m.tar.observeFieldScoped("event", "handleTarEvent")
+    m.tar.observeFieldScoped("request", "handleTarPlaybackRequest")
+    m.tar.action = {
+        type : "init",
+        creativeURL : "<creative URL returned by SSAI>",
+        adParameters : "<Ad parameters associative array as returned by
+        SSAI>",
+        slotType : "<the type of the current ad pod>"
+    }
+
 > This event will be triggered by the channel code in order to
 > instantiate the **TruexAdRenderer**. The renderer will parse out the
 > **creativeURL**, **adParameters** and **slotType** passed to it and

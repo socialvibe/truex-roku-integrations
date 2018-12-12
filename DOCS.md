@@ -167,7 +167,7 @@ making the ad request, `noAdsAvailable` or `adError` will fire
 respectively. At this point, the app should resume playback without
 skipping any ads, so the user receives a normal video ad payload.
 
-Another important event to listen for is `adFreePod`* This signifies
+Another important event to listen for is `adFreePod`. This signifies
 that the user has earned a credit with TrueX and, once the renderer
 signals it is complete (via the `adCompleted` event), all linear video
 ads remaining in the current pod should be skipped. It’s important to
@@ -212,6 +212,7 @@ channel’s main scene:
     m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
     m.tar.observeFieldScoped("event", "handleTarEvent")
     m.tar.observeFieldScoped("request", "handleTarPlaybackRequest")
+
     m.tar.action = {
         type : "init",
         creativeURL : "<creative URL returned by SSAI>",
@@ -233,8 +234,8 @@ call to `start` described next.
 
 The parameters for this method call are:
 
-* `creativeURL`: TrueX asset url returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks\[0\].ads\[0\].creative`
-* `adParameters`: AdParameters as returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks\[0\].ads\[0\].adParameters`
+* `creativeURL`: TrueX asset url returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks[0].ads[0].creative`
+* `adParameters`: AdParameters as returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks[0].ads[0].adParameters`
 * `slotType`: the type of the current ad pod, `PREROLL` or `MIDROLL`
 
 #### start
@@ -304,7 +305,7 @@ The parameters for this event are:
 
     ' adEvent : {
     '     type : "adCompleted",
-    '     timeSpent : &lt;integer representing the amount of time spent&gt;
+    '     timeSpent : <integer representing the amount of time spent>
     ' }
 
 This event will fire when the TrueX unit is complete -- at this point,
@@ -312,14 +313,10 @@ the app should resume playback and remove the `TruexAdRenderer`
 component from the Scene Graph.
 
 Here are some examples where `adCompleted` will fire:
-
--   User opts for normal video ads (not TrueX)
-
--   15 second choice card countdown runs out
-
--   User completes TrueX ad unit (or taps I’m done)
-
--   After a “skip card” has been shown to a user for 3 seconds
+* User opts for normal video ads (not TrueX)
+* 15 second choice card countdown runs out
+* User completes TrueX ad unit (or taps I’m done)
+* After a “skip card” has been shown to a user for 3 seconds
 
 The parameters for this event are:
 
@@ -337,7 +334,7 @@ The parameters for this event are:
 
 This event will fire when the TrueX unit has encountered an error it
 cannot recover from. The app code should handle this the same way as
-an `adCompleted` event -- resume playback and remove the
+an `adCompleted` event - resume playback and remove the
 `TruexAdRenderer` component from the Scene Graph.
 
 #### noAdsAvailable
@@ -351,7 +348,7 @@ an `adCompleted` event -- resume playback and remove the
 
 This event will fire when the TrueX unit has determined it has no ads
 available to show the current user. The app code should handle this
-the same way as an `adCompleted` event -- resume playback and remove
+the same way as an `adCompleted` event - resume playback and remove
 the `TruexAdRenderer` component from the Scene Graph.
 
 #### adFreePod

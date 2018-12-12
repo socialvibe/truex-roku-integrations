@@ -6,48 +6,27 @@
 ## Contents
 
 * [Overview](#overview)
-
 * [Product Flows](#product-flows)
-
 * [How to use TruexAdRenderer](#how-to-use-truexadrenderer)
-
     * [When to show True\[X\]](#when-to-show-truex)
-
     * [Handling Events from TruexAdRenderer](#handling-events-from-truexadrenderer)
-
     * [Handling Ad Elimination](#handling-ad-elimination)
-
 * [TruexAdRenderer Roku API](#truexadrenderer-roku-api)
-
     * [Reference to Truex Component Library](#reference-to-truex-component-library)
-
     * [TruexAdRenderer Input Events](#truexadrenderer-input-events)
-
-        * [4.2.1 init](#init)
-
-        * [4.2.2 start](#start)
-
+        * [init](#init)
+        * [start](#start)
     * [TruexAdRenderer Output Events](#truexadrenderer-output-events)
-
-        * [4.3.1 adStarted](#adstarted)
-
-        * [4.3.2 adCompleted](#adcompleted)
-
-        * [4.3.3 adError](#aderror)
-
-        * [4.3.4 noAdsAvailable](#noadsavailable)
-
-        * [4.3.5 adFreePod](#adfreepod)
-
-        * [4.3.7 optIn (optional)](#optin-optional)
-
-        * [4.3.8 optOut (optional)](#optout-optional) 
-
-        * [4.3.9 skipCardShown (optional)](#skipcardshown-optional) 
-
-        * [4.3.10 userCancel (optional)](#usercancel-optional) 
-
-        * [4.3.11 userCancelStream (optional)](#usercancelstream-optional) 
+        * [adStarted](#adstarted)
+        * [adCompleted](#adcompleted)
+        * [adError](#aderror)
+        * [noAdsAvailable](#noadsavailable)
+        * [adFreePod](#adfreepod)
+        * [optIn (optional)](#optin-optional)
+        * [optOut (optional)](#optout-optional) 
+        * [skipCardShown (optional)](#skipcardshown-optional) 
+        * [userCancel (optional)](#usercancel-optional) 
+        * [userCancelStream (optional)](#usercancelstream-optional) 
 
 1. Overview
 ===========

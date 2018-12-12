@@ -119,7 +119,7 @@ which they will be returned directly to content.
 
 ## How to use TruexAdRenderer 
 
-### 3.1 When to show True\[X\]
+### When to show True\[X\]
 
 Upon receiving an ad schedule from your SSAI service, you should be able
 to detect whether or not TrueX is returned in any of the pods. TrueX ads
@@ -148,7 +148,7 @@ for your users. Once the player reaches a placeholder, it can then call
 **start** to notify the renderer so that it can display the unit to the
 user.
 
-### 3.2 Handling Events from TruexAdRenderer
+### Handling Events from TruexAdRenderer
 
 Once **start** has been called on the renderer, it will start to emit
 events (a full list of events is available in Section 4.3).
@@ -180,14 +180,12 @@ the user opts out of TrueX, or when she lets the choice card countdown
 expire. If so, playback still should resume, but without fast-forwarding
 so the user receives the remaining payload of video ads.
 
-### 3.3 Handling Ad Elimination
+### Handling Ad Elimination
 
 Skipping video ads is completely the responsibility of the app code. The
 SSAI API should provide enough information for the app to determine
 where the current pod end-point is, and the channel, when appropriate,
 should fast-forward directly to this point when resuming playback.
-
- 
 
 ## TruexAdRenderer Roku API
 
@@ -210,7 +208,7 @@ channel’s main scene:
 
 ### TruexAdRenderer Input Events
 
-#### 4.2.1 init
+#### init
 
 > m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
 >
@@ -255,7 +253,7 @@ channel’s main scene:
 -   **slotType**: the type of the current ad pod, **PREROLL** or
     > **MIDROLL**
 
-#### 4.2.2 start
+#### start
 
 > m.tar.action = {
 
@@ -300,7 +298,7 @@ type : "start"
 
 ### TruexAdRenderer Output Events 
 
-#### 4.3.1 adStarted
+#### adStarted
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -322,7 +320,7 @@ type : "start"
 -   **campaignName:** The name of the ad campaign available to the user
     > (e.g. "*US Air Force - Special OPS (TA M) - Q1 2017*")
 
-#### 4.3.2 adCompleted
+#### adCompleted
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -356,7 +354,7 @@ type : "start"
     > TrueX interactive ad unit -- set to 0 if the user did not earn an
     > ad free credit or if the user was shown a "skip card".
 
-#### 4.3.3 adError
+#### adError
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -375,7 +373,7 @@ type : "start"
 > an **adCompleted** event -- resume playback and remove the
 > **TruexAdRenderer** component from the Scene Graph.
 
-#### 4.3.4 noAdsAvailable
+#### noAdsAvailable
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -392,7 +390,7 @@ type : "start"
 > the same way as an **adCompleted** event -- resume playback and remove
 > the **TruexAdRenderer** component from the Scene Graph.
 
-#### 4.3.5 adFreePod
+#### adFreePod
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -412,7 +410,7 @@ type : "start"
 *<span class="underline">All following events are used mostly for
 tracking purposes -- no action is generally required:</span>*
 
-#### 4.3.7 optIn *(optional)*
+#### optIn *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -430,7 +428,7 @@ tracking purposes -- no action is generally required:</span>*
 > Note that this event may be fired multiple times if a user opts in to
 > the TrueX interactive ad and subsequently backs out.
 
-#### 4.3.8 optOut *(optional)*
+#### optOut *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -449,7 +447,7 @@ tracking purposes -- no action is generally required:</span>*
 > selected by the user, false if the user simply allowed the choice card
 > countdown to expire.
 
-#### 4.3.9 skipCardShown *(optional)*
+#### skipCardShown *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -465,7 +463,7 @@ tracking purposes -- no action is generally required:</span>*
 > result of completing a TrueX Sponsored Stream interactive in an
 > earlier preroll.
 
-#### 4.3.10 userCancel *(optional)*
+#### userCancel *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -488,7 +486,7 @@ tracking purposes -- no action is generally required:</span>*
 > with an interactive ad again, so more **optIn**, **exitSelectWatch**,
 > etc events may then be fired.
 
-#### 4.3.11 userCancelStream *(optional)*
+#### userCancelStream *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >

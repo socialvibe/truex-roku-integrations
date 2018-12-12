@@ -1,4 +1,4 @@
-<img src="media/image1.png" style="width:2.08333in;height:0.46875in" />
+![TrueX logo](media/truex.png)
 
 # TruexAdRenderer Roku Documentation
 
@@ -73,7 +73,7 @@ TrueX tag flighted, they will be shown a "choice-card" offering them the
 choice between watching a normal set of video ads or a fully interactive
 TrueX ad:
 
-<img src="media/image3.png" style="width:5.92396in;height:3.39629in" />
+![choice card](media/choice_card.png)
 
 ***Fig. A** example true\[X\] mid-roll choice card*
 
@@ -84,7 +84,7 @@ will close and playback of normal video ads can continue as usual.
 If the user opts to interact with TrueX, an interactive ad unit will be
 shown to the user:
 
-<img src="media/image4.png" style="width:6.121in;height:3.49479in" />
+![choice card](media/ad.png)
 
 ***Fig. B** example true\[X\] interactive ad unit*
 
@@ -100,7 +100,7 @@ directly to content, skipping the remaining ads in the current ad pod.
 The Sponsored Stream flow is quite similar. In this scenario, a user
 will be shown a choice-card in the preroll:
 
-<img src="media/image2.png" style="width:5.96563in;height:3.42017in" />
+![choice card](media/choice_card.png)
 
 ***Fig. C** example true\[X\] preroll choice card (full-stream
 replacement)*
@@ -111,7 +111,7 @@ subsequent mid-roll break in the current stream will also be skipped
 over. In this case instead of the regular pod of video ads, the user
 will be shown a "hero card" (also known as a "skip card"):
 
-<img src="media/image5.png" style="width:5.42653in;height:3.01563in" />
+![choice card](media/skip_card.png)
 
 ***Fig. D** example true\[X\] mid-roll skip card*
 

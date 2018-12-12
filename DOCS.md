@@ -246,11 +246,9 @@ channel’s main scene:
 
 #### start
 
-> m.tar.action = {
-
-type : "start"
-
-}
+    m.tar.action = {
+        type : "start"
+    }
 
 > This method will be called by the channel code when the TrueX unit is
 > ready to be displayed to the user. This can be called anytime after
@@ -291,18 +289,14 @@ type : "start"
 
 #### adStarted
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "adStarted",
->
-> ' campaignName : &lt;string representing the campaign name&gt;
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "adStarted",
+    '     campaignName : &lt;string representing the campaign name&gt;
+    ' }
+
 > This event will fire in response to the **start** input event when the
 > TrueX UI is ready and has been added to the component hierarchy.
 >
@@ -313,18 +307,14 @@ type : "start"
 
 #### adCompleted
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "adCompleted",
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
 
-' timeSpent : &lt;integer representing the amount of time spent&gt;
+    ' adEvent : {
+    '     type : "adCompleted",
+    '     timeSpent : &lt;integer representing the amount of time spent&gt;
+    ' }
 
-> ' }
->
 > This event will fire when the TrueX unit is complete -- at this point,
 > the app should resume playback and remove the **TruexAdRenderer**
 > component from the Scene Graph.
@@ -347,18 +337,14 @@ type : "start"
 
 #### adError
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "error",
->
-> ' errorMessage : &lt;string representing the error message&gt;
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "error",
+    '     errorMessage : &lt;string representing the error message&gt;
+    ' }
+
 > This event will fire when the TrueX unit has encountered an error it
 > cannot recover from. The app code should handle this the same way as
 > an **adCompleted** event -- resume playback and remove the
@@ -366,16 +352,13 @@ type : "start"
 
 #### noAdsAvailable
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "noAdsAvailable"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "noAdsAvailable"
+    ' }
+
 > This event will fire when the TrueX unit has determined it has no ads
 > available to show the current user. The app code should handle this
 > the same way as an **adCompleted** event -- resume playback and remove
@@ -383,16 +366,13 @@ type : "start"
 
 #### adFreePod
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "adFreePod"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "adFreePod"
+    ' }
+
 > This event will fire when the all remaining ads in the current ad pod
 > need to be skipped. The app code should notate that this event has
 > fired, but should not take any further action until it receives an
@@ -403,16 +383,13 @@ tracking purposes -- no action is generally required:</span>*
 
 #### optIn *(optional)*
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "optIn"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "optIn"
+    ' }
+
 > This event will fire if the user selects to interact with the TrueX
 > interactive ad.
 >
@@ -421,18 +398,14 @@ tracking purposes -- no action is generally required:</span>*
 
 #### optOut *(optional)*
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "optOut"
->
-> ' userInitiated : &lt;true or false&gt;
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "optOut"
+    '     userInitiated : &lt;true or false&gt;
+    ' }
+
 > This event will fire if the user opts for a normal video ad
 > experience. **userInitiated** will be set to true if this was actively
 > selected by the user, false if the user simply allowed the choice card
@@ -440,32 +413,26 @@ tracking purposes -- no action is generally required:</span>*
 
 #### skipCardShown *(optional)*
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "skipCardShown"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "skipCardShown"
+    ' }
+
 > This event will fire anytime a "skip card" is shown to a user as a
 > result of completing a TrueX Sponsored Stream interactive in an
 > earlier preroll.
 
 #### userCancel *(optional)*
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "userCancel"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "userCancel"
+    ' }
+
 > This event will fire when a user backs out of the TrueX interactive ad
 > unit after having opted in. This would be achieved by tapping the
 > "Yes" link to the “Are you sure you want to go back and choose a
@@ -479,16 +446,13 @@ tracking purposes -- no action is generally required:</span>*
 
 #### userCancelStream *(optional)*
 
-> function handleTarEvent(evt as Object) as Void
->
-> adEvent = evt.getData()
->
-> ' adEvent : {
->
-> ' type : "userCancelStream"
->
-> ' }
->
+    function handleTarEvent(evt as Object) as Void
+    adEvent = evt.getData()
+
+    ' adEvent : {
+    '     type : "userCancelStream"
+    ' }
+
 > This events conveys that a user has decided to cancel the stream
 > entirely. The channel, at this point, should treat this the same way
 > it would handle any other "exit" action from within the stream -- in

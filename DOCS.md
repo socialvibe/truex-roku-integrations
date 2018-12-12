@@ -220,18 +220,18 @@ channel’s main scene:
         slotType : "<the type of the current ad pod>"
     }
 
-> This event will be triggered by the channel code in order to
-> instantiate the **TruexAdRenderer**. The renderer will parse out the
-> **creativeURL**, **adParameters** and **slotType** passed to it and
-> make a request to the TrueX ad server to see what ads are available.
->
-> You may instantiate **TruexAdRenderer** early (a few seconds before
-> the next pod even starts) in order to give it extra time to make the
-> ad request. The renderer will output a **fetchAdComplete** event at
-> completion of this ad request. The event can be used to coordinate the
-> call to **start** described next.
->
-> The parameters for this method call are:
+This event will be triggered by the channel code in order to
+instantiate the **TruexAdRenderer**. The renderer will parse out the
+**creativeURL**, **adParameters** and **slotType** passed to it and
+make a request to the TrueX ad server to see what ads are available.
+
+You may instantiate **TruexAdRenderer** early (a few seconds before
+the next pod even starts) in order to give it extra time to make the
+ad request. The renderer will output a **fetchAdComplete** event at
+completion of this ad request. The event can be used to coordinate the
+call to **start** described next.
+
+The parameters for this method call are:
 
 -   **creativeURL:** TrueX asset url returned by SSAI. In the example of
     > Uplynk, this would correspond to
@@ -250,40 +250,40 @@ channel’s main scene:
         type : "start"
     }
 
-> This method will be called by the channel code when the TrueX unit is
-> ready to be displayed to the user. This can be called anytime after
-> the unit is initialized.
->
-> The channel should have as much extraneous UI hidden as possible,
-> including player controls, status bars and soft buttons/keyboards,
-> where possible.
->
-> Once **start** is called, the renderer will wait for the ad request
-> triggered in **init** to finish.
->
-> If the request returns an ad, the renderer will immediately
-> instantiate a **TruexChoiceCard** component and add it to the
-> **TruexAdRenderer** parent component. Once this is complete, it will
-> fire the **adStarted** event. The user will be shown the TrueX choice
-> card once all relevant assets have loaded. **adFreePod**,
-> **exitSelectWatch** or **exitAutoWatch** may fire after this point,
-> depending on the user’s choices. An **adCompleted** event will always
-> follow all other events at the end of a non-error flow.
->
-> If the request returns no ads, the renderer will fire the
-> **noAdsAvailable** event.
->
-> If the request signals that the user is in an ad-free state, then the
-> renderer will immediately instantiate a **TruexSkipCard** component
-> and add it to the **TruexAdRenderer** parent component. Once this is
-> complete, it will fire the **adStarted** and **skipCardShown** events.
-> After 3 seconds of a “skip card” being shown to the user, the
-> **adFreePod** event will fire, followed immediately by the
-> **adCompleted** event.
->
-> If the request fails, the renderer will fire the **adError** event.
->
-> There are no parameters for this event.
+This method will be called by the channel code when the TrueX unit is
+ready to be displayed to the user. This can be called anytime after
+the unit is initialized.
+
+The channel should have as much extraneous UI hidden as possible,
+including player controls, status bars and soft buttons/keyboards,
+where possible.
+
+Once **start** is called, the renderer will wait for the ad request
+triggered in **init** to finish.
+
+If the request returns an ad, the renderer will immediately
+instantiate a **TruexChoiceCard** component and add it to the
+**TruexAdRenderer** parent component. Once this is complete, it will
+fire the **adStarted** event. The user will be shown the TrueX choice
+card once all relevant assets have loaded. **adFreePod**,
+**exitSelectWatch** or **exitAutoWatch** may fire after this point,
+depending on the user’s choices. An **adCompleted** event will always
+follow all other events at the end of a non-error flow.
+
+If the request returns no ads, the renderer will fire the
+**noAdsAvailable** event.
+
+If the request signals that the user is in an ad-free state, then the
+renderer will immediately instantiate a **TruexSkipCard** component
+and add it to the **TruexAdRenderer** parent component. Once this is
+complete, it will fire the **adStarted** and **skipCardShown** events.
+After 3 seconds of a “skip card” being shown to the user, the
+**adFreePod** event will fire, followed immediately by the
+**adCompleted** event.
+
+If the request fails, the renderer will fire the **adError** event.
+
+There are no parameters for this event.
 
 ### TruexAdRenderer Output Events 
 
@@ -297,10 +297,10 @@ channel’s main scene:
     '     campaignName : &lt;string representing the campaign name&gt;
     ' }
 
-> This event will fire in response to the **start** input event when the
-> TrueX UI is ready and has been added to the component hierarchy.
->
-> The parameters for this event are:
+This event will fire in response to the **start** input event when the
+TrueX UI is ready and has been added to the component hierarchy.
+
+The parameters for this event are:
 
 -   **campaignName:** The name of the ad campaign available to the user
     > (e.g. "*US Air Force - Special OPS (TA M) - Q1 2017*")
@@ -315,11 +315,11 @@ channel’s main scene:
     '     timeSpent : &lt;integer representing the amount of time spent&gt;
     ' }
 
-> This event will fire when the TrueX unit is complete -- at this point,
-> the app should resume playback and remove the **TruexAdRenderer**
-> component from the Scene Graph.
->
-> Here are some examples where **adCompleted** will fire:
+This event will fire when the TrueX unit is complete -- at this point,
+the app should resume playback and remove the **TruexAdRenderer**
+component from the Scene Graph.
+
+Here are some examples where **adCompleted** will fire:
 
 -   User opts for normal video ads (not TrueX)
 
@@ -345,10 +345,10 @@ channel’s main scene:
     '     errorMessage : &lt;string representing the error message&gt;
     ' }
 
-> This event will fire when the TrueX unit has encountered an error it
-> cannot recover from. The app code should handle this the same way as
-> an **adCompleted** event -- resume playback and remove the
-> **TruexAdRenderer** component from the Scene Graph.
+This event will fire when the TrueX unit has encountered an error it
+cannot recover from. The app code should handle this the same way as
+an **adCompleted** event -- resume playback and remove the
+**TruexAdRenderer** component from the Scene Graph.
 
 #### noAdsAvailable
 
@@ -359,10 +359,10 @@ channel’s main scene:
     '     type : "noAdsAvailable"
     ' }
 
-> This event will fire when the TrueX unit has determined it has no ads
-> available to show the current user. The app code should handle this
-> the same way as an **adCompleted** event -- resume playback and remove
-> the **TruexAdRenderer** component from the Scene Graph.
+This event will fire when the TrueX unit has determined it has no ads
+available to show the current user. The app code should handle this
+the same way as an **adCompleted** event -- resume playback and remove
+the **TruexAdRenderer** component from the Scene Graph.
 
 #### adFreePod
 
@@ -373,10 +373,10 @@ channel’s main scene:
     '     type : "adFreePod"
     ' }
 
-> This event will fire when the all remaining ads in the current ad pod
-> need to be skipped. The app code should notate that this event has
-> fired, but should not take any further action until it receives an
-> **adCompleted** or **adError** event.
+This event will fire when the all remaining ads in the current ad pod
+need to be skipped. The app code should notate that this event has
+fired, but should not take any further action until it receives an
+**adCompleted** or **adError** event.
 
 *<span class="underline">All following events are used mostly for
 tracking purposes -- no action is generally required:</span>*
@@ -390,11 +390,11 @@ tracking purposes -- no action is generally required:</span>*
     '     type : "optIn"
     ' }
 
-> This event will fire if the user selects to interact with the TrueX
-> interactive ad.
->
-> Note that this event may be fired multiple times if a user opts in to
-> the TrueX interactive ad and subsequently backs out.
+This event will fire if the user selects to interact with the TrueX
+interactive ad.
+
+Note that this event may be fired multiple times if a user opts in to
+the TrueX interactive ad and subsequently backs out.
 
 #### optOut *(optional)*
 
@@ -406,10 +406,10 @@ tracking purposes -- no action is generally required:</span>*
     '     userInitiated : &lt;true or false&gt;
     ' }
 
-> This event will fire if the user opts for a normal video ad
-> experience. **userInitiated** will be set to true if this was actively
-> selected by the user, false if the user simply allowed the choice card
-> countdown to expire.
+This event will fire if the user opts for a normal video ad
+experience. **userInitiated** will be set to true if this was actively
+selected by the user, false if the user simply allowed the choice card
+countdown to expire.
 
 #### skipCardShown *(optional)*
 
@@ -420,9 +420,9 @@ tracking purposes -- no action is generally required:</span>*
     '     type : "skipCardShown"
     ' }
 
-> This event will fire anytime a "skip card" is shown to a user as a
-> result of completing a TrueX Sponsored Stream interactive in an
-> earlier preroll.
+This event will fire anytime a "skip card" is shown to a user as a
+result of completing a TrueX Sponsored Stream interactive in an
+earlier preroll.
 
 #### userCancel *(optional)*
 
@@ -433,16 +433,16 @@ tracking purposes -- no action is generally required:</span>*
     '     type : "userCancel"
     ' }
 
-> This event will fire when a user backs out of the TrueX interactive ad
-> unit after having opted in. This would be achieved by tapping the
-> "Yes" link to the “Are you sure you want to go back and choose a
-> different ad experience” prompt inside the TrueX interactive ad. The
-> user will be subsequently taken back to the Choice Card (with the
-> countdown timer reset to full).
->
-> Note that after a **userCancel**, the viewer can opt-in and engage
-> with an interactive ad again, so more **optIn**, **exitSelectWatch**,
-> etc events may then be fired.
+This event will fire when a user backs out of the TrueX interactive ad
+unit after having opted in. This would be achieved by tapping the
+"Yes" link to the “Are you sure you want to go back and choose a
+different ad experience” prompt inside the TrueX interactive ad. The
+user will be subsequently taken back to the Choice Card (with the
+countdown timer reset to full).
+
+Note that after a **userCancel**, the viewer can opt-in and engage
+with an interactive ad again, so more **optIn**, **exitSelectWatch**,
+etc events may then be fired.
 
 #### userCancelStream *(optional)*
 
@@ -453,8 +453,8 @@ tracking purposes -- no action is generally required:</span>*
     '     type : "userCancelStream"
     ' }
 
-> This events conveys that a user has decided to cancel the stream
-> entirely. The channel, at this point, should treat this the same way
-> it would handle any other "exit" action from within the stream -- in
-> most cases this will result in the user being returned to an
-> episode/series detail page.
+This events conveys that a user has decided to cancel the stream
+entirely. The channel, at this point, should treat this the same way
+it would handle any other "exit" action from within the stream -- in
+most cases this will result in the user being returned to an
+episode/series detail page.

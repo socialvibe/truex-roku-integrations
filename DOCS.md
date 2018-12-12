@@ -28,8 +28,7 @@
         * [userCancel (optional)](#usercancel-optional) 
         * [userCancelStream (optional)](#usercancelstream-optional) 
 
-1. Overview
-===========
+## Overview
 
 In order to support interactive ads on Roku, TrueX has created a
 renderer component library that can renderer TrueX ads natively, which
@@ -62,8 +61,7 @@ renderer code.
 It will also need to handle skipping ads in the current ad pod, if it is
 notified to do so.
 
-2. Product Flows
-================
+## Product Flows
 
 There are two distinct product flows supported by **TruexAdRenderer**:
 Sponsored Stream (full-stream ad-replacement) and Sponsored Ad Break
@@ -119,8 +117,7 @@ will be shown a "hero card" (also known as a "skip card"):
 This messaging will be displayed to the user for several seconds, after
 which they will be returned directly to content.
 
-3. How to use TruexAdRenderer 
-==============================
+## How to use TruexAdRenderer 
 
 ### 3.1 When to show True\[X\]
 
@@ -192,16 +189,14 @@ should fast-forward directly to this point when resuming playback.
 
  
 
-4. TruexAdRenderer Roku API
-===========================
+## TruexAdRenderer Roku API
 
 This is an outline of **TruexAdRenderer** input and output events. Input
 events are assigned on the **action** field from the interface of the
 **TruexAdRenderer**, while output events are emitted against the
 **event** field on the same component.
 
-4.1 Reference to Truex Component Library
-----------------------------------------
+### Reference to Truex Component Library
 
 The TrueX interactive ad component and its rendering logic are
 distributed as part of a component library. It is required for the
@@ -213,10 +208,9 @@ channel’s main scene:
 > uri="http://static.truex.com.s3.amazonaws.com/roku/TruexAdRenderer-Roku-v0.9.0.pkg"
 > /&gt;
 
-4.2 TruexAdRenderer Input Events
---------------------------------
+### TruexAdRenderer Input Events
 
-### 4.2.1 init
+#### 4.2.1 init
 
 > m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
 >
@@ -261,7 +255,7 @@ channel’s main scene:
 -   **slotType**: the type of the current ad pod, **PREROLL** or
     > **MIDROLL**
 
-### 4.2.2 start
+#### 4.2.2 start
 
 > m.tar.action = {
 
@@ -304,10 +298,9 @@ type : "start"
 >
 > There are no parameters for this event.
 
-4.3 TruexAdRenderer Output Events 
-----------------------------------
+### TruexAdRenderer Output Events 
 
-### 4.3.1 adStarted
+#### 4.3.1 adStarted
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -329,7 +322,7 @@ type : "start"
 -   **campaignName:** The name of the ad campaign available to the user
     > (e.g. "*US Air Force - Special OPS (TA M) - Q1 2017*")
 
-### 4.3.2 adCompleted
+#### 4.3.2 adCompleted
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -363,7 +356,7 @@ type : "start"
     > TrueX interactive ad unit -- set to 0 if the user did not earn an
     > ad free credit or if the user was shown a "skip card".
 
-### 4.3.3 adError
+#### 4.3.3 adError
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -382,9 +375,7 @@ type : "start"
 > an **adCompleted** event -- resume playback and remove the
 > **TruexAdRenderer** component from the Scene Graph.
 
-### 
-
-### 4.3.4 noAdsAvailable
+#### 4.3.4 noAdsAvailable
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -401,7 +392,7 @@ type : "start"
 > the same way as an **adCompleted** event -- resume playback and remove
 > the **TruexAdRenderer** component from the Scene Graph.
 
-### 4.3.5 adFreePod
+#### 4.3.5 adFreePod
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -421,7 +412,7 @@ type : "start"
 *<span class="underline">All following events are used mostly for
 tracking purposes -- no action is generally required:</span>*
 
-### 4.3.7 optIn *(optional)*
+#### 4.3.7 optIn *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -439,7 +430,7 @@ tracking purposes -- no action is generally required:</span>*
 > Note that this event may be fired multiple times if a user opts in to
 > the TrueX interactive ad and subsequently backs out.
 
-### 4.3.8 optOut *(optional)*
+#### 4.3.8 optOut *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -458,7 +449,7 @@ tracking purposes -- no action is generally required:</span>*
 > selected by the user, false if the user simply allowed the choice card
 > countdown to expire.
 
-### 4.3.9 skipCardShown *(optional)*
+#### 4.3.9 skipCardShown *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -474,7 +465,7 @@ tracking purposes -- no action is generally required:</span>*
 > result of completing a TrueX Sponsored Stream interactive in an
 > earlier preroll.
 
-### 4.3.10 userCancel *(optional)*
+#### 4.3.10 userCancel *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >
@@ -497,7 +488,7 @@ tracking purposes -- no action is generally required:</span>*
 > with an interactive ad again, so more **optIn**, **exitSelectWatch**,
 > etc events may then be fired.
 
-### 4.3.11 userCancelStream *(optional)*
+#### 4.3.11 userCancelStream *(optional)*
 
 > function handleTarEvent(evt as Object) as Void
 >

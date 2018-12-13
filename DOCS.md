@@ -46,7 +46,7 @@ For simplicity, publisher implemented code will be referred to as
 TrueX will provide a Roku `TruexLibrary` component library that can be
 loaded into the app. This library will offer a component,
 `TruexAdRenderer`, that will need to be instantiated, initialized and
-given certain commands (described below in Section 4) by the channel
+given certain commands (described below in [TruexAdRenderer Input Events](#truexadrenderer-input-events)) by the channel
 code.
 
 At this point, the renderer code will take on the responsibility of
@@ -152,7 +152,7 @@ user.
 ### Handling Events from TruexAdRenderer
 
 Once `start` has been called on the renderer, it will start to emit
-events (a full list of events is available in Section 4.3).
+events (a full list of events is available in [TruexAdRenderer Output Events](#truexadrenderer-output-events)).
 
 One of the first events you will receive is `adStarted`. This notifies
 the app that the renderer has received an ad for the user and has

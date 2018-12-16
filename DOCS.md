@@ -389,7 +389,7 @@ the TrueX interactive ad and subsequently backs out.
 
     ' adEvent : {
     '     type : "optOut"
-    '     userInitiated : &lt;true or false&gt;
+    '     userInitiated : <true or false>
     ' }
 
 This event will fire if the user opts for a normal video ad

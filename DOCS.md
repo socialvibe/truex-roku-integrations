@@ -92,6 +92,10 @@ The requirement for the user to "complete" this ad is for them to spend
 at least 30 seconds on the unit and for at least one interaction
 (navigating anywhere through the ad).
 
+![choice card](media/true-attention-timer-example.png)
+
+***Fig. C** example true\[X\] attention timer*
+
 Once the user fulfills both requirements, a "Watch Your Show" button
 will appear in the bottom right, which the user can select to exit the
 TrueX ad. Having completed a TrueX ad, the user will be returned
@@ -102,7 +106,7 @@ will be shown a choice-card in the preroll:
 
 ![choice card](media/choice_card.png)
 
-***Fig. C** example true\[X\] preroll choice card (full-stream
+***Fig. D** example true\[X\] preroll choice card (full-stream
 replacement)*
 
 Similarly, if the user opts-in and completes the TrueX ad, they will be
@@ -113,7 +117,7 @@ will be shown a "hero card" (also known as a "skip card"):
 
 ![choice card](media/skip_card.png)
 
-***Fig. D** example true\[X\] mid-roll skip card*
+***Fig. E** example true\[X\] mid-roll skip card*
 
 This messaging will be displayed to the user for several seconds, after
 which they will be returned directly to content.

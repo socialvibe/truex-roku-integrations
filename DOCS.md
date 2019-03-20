@@ -263,9 +263,9 @@ If the request returns an ad, the renderer will immediately
 instantiate a `TruexChoiceCard` component and add it to the
 `TruexAdRenderer` parent component. Once this is complete, it will
 fire the `adStarted` event. The user will be shown the TrueX choice
-card once all relevant assets have loaded. `adFreePod`,
-`exitSelectWatch` or `exitAutoWatch` may fire after this point,
-depending on the user’s choices. An `adCompleted` event will always
+card once all relevant assets have loaded. `optIn`, `optOut`, and
+`adFreePod` may fire after this point,
+depending on the user’s choices. Then, either an `adCompleted`, `userCancel`, or `userCancelStream` event will
 follow all other events at the end of a non-error flow.
 
 If the request returns no ads, the renderer will fire the

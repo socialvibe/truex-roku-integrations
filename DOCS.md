@@ -179,10 +179,10 @@ note that the player should not immediately resume playback once
 receiving this event -- rather it should note that it was fired and
 continue to wait for an `adCompleted` event.
 
-Other possible events emitted on exit by the TruexAdRenderer are
-`exitSelectWatch` or `exitAutoWatch`. These occur respectively when
-the user opts out of TrueX, or when she lets the choice card countdown
-expire. If so, playback still should resume, but without fast-forwarding
+Another possible event emitted on exit by the TruexAdRenderer is
+`optOut`. This occurs when
+the user opts out of TrueX or when they let the choice card countdown
+expire. When this happens, playback still should resume, but without fast-forwarding
 so the user receives the remaining payload of video ads.
 
 ### Handling Ad Elimination

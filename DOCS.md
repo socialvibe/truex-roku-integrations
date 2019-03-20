@@ -2,7 +2,7 @@
 
 # TruexAdRenderer Roku Documentation
 
-Version 1.0.1
+Version 1.0.0
 
 ## Contents
 
@@ -84,7 +84,7 @@ will close and playback of normal video ads can continue as usual.
 If the user opts to interact with TrueX, an interactive ad unit will be
 shown to the user:
 
-![choice card](media/ad.png)
+![ad](media/ad.png)
 
 ***Fig. B** example true\[X\] interactive ad unit*
 
@@ -92,7 +92,7 @@ The requirement for the user to "complete" this ad is for them to spend
 at least 30 seconds on the unit and for at least one interaction
 (navigating anywhere through the ad).
 
-![choice card](media/true-attention-timer-example.png)
+![true attention timer example](media/true-attention-timer-example.png)
 
 ***Fig. C** example true\[X\] attention timer*
 
@@ -115,7 +115,7 @@ subsequent mid-roll break in the current stream will also be skipped
 over. In this case instead of the regular pod of video ads, the user
 will be shown a "hero card" (also known as a "skip card"):
 
-![choice card](media/skip_card.png)
+![skip card](media/skip_card.png)
 
 ***Fig. E** example true\[X\] mid-roll skip card*
 

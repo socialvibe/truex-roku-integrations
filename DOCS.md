@@ -84,13 +84,17 @@ will close and playback of normal video ads can continue as usual.
 If the user opts to interact with TrueX, an interactive ad unit will be
 shown to the user:
 
-![choice card](media/ad.png)
+![ad](media/ad.png)
 
 ***Fig. B** example true\[X\] interactive ad unit*
 
 The requirement for the user to "complete" this ad is for them to spend
 at least 30 seconds on the unit and for at least one interaction
 (navigating anywhere through the ad).
+
+![true attention timer example](media/true-attention-timer-example.png)
+
+***Fig. C** example true\[X\] attention timer*
 
 Once the user fulfills both requirements, a "Watch Your Show" button
 will appear in the bottom right, which the user can select to exit the
@@ -102,7 +106,7 @@ will be shown a choice-card in the preroll:
 
 ![choice card](media/choice_card.png)
 
-***Fig. C** example true\[X\] preroll choice card (full-stream
+***Fig. D** example true\[X\] preroll choice card (full-stream
 replacement)*
 
 Similarly, if the user opts-in and completes the TrueX ad, they will be
@@ -111,9 +115,9 @@ subsequent mid-roll break in the current stream will also be skipped
 over. In this case instead of the regular pod of video ads, the user
 will be shown a "hero card" (also known as a "skip card"):
 
-![choice card](media/skip_card.png)
+![skip card](media/skip_card.png)
 
-***Fig. D** example true\[X\] mid-roll skip card*
+***Fig. E** example true\[X\] mid-roll skip card*
 
 This messaging will be displayed to the user for several seconds, after
 which they will be returned directly to content.
@@ -175,10 +179,10 @@ note that the player should not immediately resume playback once
 receiving this event -- rather it should note that it was fired and
 continue to wait for an `adCompleted` event.
 
-Other possible events emitted on exit by the TruexAdRenderer are
-`exitSelectWatch` or `exitAutoWatch`. These occur respectively when
-the user opts out of TrueX, or when she lets the choice card countdown
-expire. If so, playback still should resume, but without fast-forwarding
+Another possible event emitted on exit by the TruexAdRenderer is
+`optOut`. This occurs when
+the user opts out of TrueX or when they let the choice card countdown
+expire. When this happens, playback still should resume, but without fast-forwarding
 so the user receives the remaining payload of video ads.
 
 ### Handling Ad Elimination
@@ -259,9 +263,9 @@ If the request returns an ad, the renderer will immediately
 instantiate a `TruexChoiceCard` component and add it to the
 `TruexAdRenderer` parent component. Once this is complete, it will
 fire the `adStarted` event. The user will be shown the TrueX choice
-card once all relevant assets have loaded. `adFreePod`,
-`exitSelectWatch` or `exitAutoWatch` may fire after this point,
-depending on the user’s choices. An `adCompleted` event will always
+card once all relevant assets have loaded. `optIn`, `optOut`, and
+`adFreePod` may fire after this point,
+depending on the user’s choices. Then, either an `adCompleted`, `userCancel`, or `userCancelStream` event will
 follow all other events at the end of a non-error flow.
 
 If the request returns no ads, the renderer will fire the
@@ -389,7 +393,7 @@ the TrueX interactive ad and subsequently backs out.
 
     ' adEvent : {
     '     type : "optOut"
-    '     userInitiated : &lt;true or false&gt;
+    '     userInitiated : <true or false>
     ' }
 
 This event will fire if the user opts for a normal video ad

@@ -104,7 +104,7 @@ Alternatively, you can instantiate and `init` the `TruexAdRenderer` in preparati
 
 ### Handling Events from TruexAdRenderer
 
-Once `start` has been called on the renderer, it will start to emit events (a full list of events is available in [TruexAdRenderer Output Events](#truexadrenderer-output-events)).
+Once `start` has been called on the renderer, it will start to emit events (see [`TruexAdRenderer` Output Events -- Main Flow](#truexadrenderer-output-events----main-flow) and [`TruexAdRenderer` Output Events -- Informative](#truexadrenderer-output-events----informative)).
 
 One of the first events you will receive is `adStarted`. This notifies the channel that the renderer has received an ad for the user and has started to show the unit to the user. The channel does not need to do anything in response, however it can use this event to facilitate a timeout. If an `adStarted` event has not fired within a certain amount of time, the host channel can proceed to normal video ads.
 

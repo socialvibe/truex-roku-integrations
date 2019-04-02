@@ -189,7 +189,7 @@ The following events signal the main flow of the `TruexAdRenderer` and may requi
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "adFetchCompleted"
        ' }
@@ -207,7 +207,7 @@ Another example: `init` is called well before a mid-roll slot to give the render
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "adStarted",
        '     campaignName : <string representing the campaign name>
@@ -225,7 +225,7 @@ The parameters for this event are:
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "adCompleted",
        '     timeSpent : <integer representing the amount of time spent>
@@ -250,7 +250,7 @@ The parameters for this event are:
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "error",
        '     errorMessage : <string representing the error message>
@@ -269,7 +269,7 @@ The parameters for this event are:
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "noAdsAvailable"
        ' }
@@ -283,7 +283,7 @@ This is a [terminal event](#terminal-events). This event will fire when the true
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "adFreePod"
        ' }
@@ -297,7 +297,7 @@ This event will fire when the user has earned a credit with true[X]. The channel
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "userCancelStream"
        ' }
@@ -319,7 +319,7 @@ All following events are used mostly for tracking purposes -- no action is gener
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "optIn"
        ' }
@@ -334,7 +334,7 @@ Note that this event may be fired multiple times if a user opts in to the true[X
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "optOut"
        '     userInitiated : <true or false>
@@ -353,7 +353,7 @@ The parameters for this event are:
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "skipCardShown"
        ' }
@@ -367,7 +367,7 @@ This event will fire anytime a "skip card" is shown to a user as a result of com
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "userCancel"
        ' }
@@ -383,7 +383,7 @@ Note that after a `userCancel`, the user can opt-in and engage with an interacti
 ```brightscript
    function handleTarEvent(evt as Object) as Void
        adEvent = evt.getData()
-    
+
        ' adEvent : {
        '     type : "videoEvent",
        '     subType : "<the subType -- see below>",

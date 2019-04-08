@@ -90,7 +90,7 @@ _**Fig. E** example true\[X\] mid-roll skip card_
 
 This messaging will be displayed to the user for several seconds, after which they will be returned directly to content.
 
-## How to use TruexAdRenderer 
+## How to use TruexAdRenderer
 
 ### When to show true\[X\]
 
@@ -152,7 +152,7 @@ The true[X] interactive ad component and its rendering logic are distributed as 
    }
 ```
 
-This event will be triggered by the channel code in order to initialize the `TruexAdRenderer`. The renderer will parse out the `adParameters` and `slotType` passed to it and make a request to the true[X] ad server to see what ads are available.
+This event should be triggered by the channel code in order to initialize the `TruexAdRenderer`. The renderer will parse out the `adParameters` and `slotType` passed to it and make a request to the true[X] ad server to see what ads are available.
 
 You may initialize `TruexAdRenderer` early (a few seconds before the next pod even starts) in order to give it extra time to make the ad request. The renderer will output an `adFetchCompleted` event at completion of this ad request. This event can be used to facilitate the implementation of a timeout or loading indicator, and when to make the call to `start`.
 
@@ -171,7 +171,7 @@ The parameters for this method call are:
    }
 ```
 
-This method should be called by the channel code when the channel is ready to display the true[X] unit to the user. This can be called anytime after the unit is initialized.
+This event should be triggered by the channel code when the channel is ready to display the true[X] unit to the user. This can be called anytime after the unit is initialized.
 
 The channel should have as much extraneous UI hidden as possible, including player controls, status bars and soft buttons/keyboards.
 

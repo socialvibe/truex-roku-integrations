@@ -149,7 +149,8 @@ The true[X] interactive ad component and its rendering logic are distributed as 
        adParameters : "<Ad parameters associative array as returned by SSAI>",
        slotType : "<the type of the current ad pod>",
        supportsUserCancelStream : <optional; set to true to enable the userCancelStream event>,
-       logLevel : <optional; set the verbosity of true[X] logging, from 0 (mute) to 5 (verbose)>
+       logLevel : <optional; set the verbosity of true[X] logging, from 0 (mute) to 5 (verbose), defaults to 5>,
+       channelWidth : <optional; set the width in pixels of the channel's interface, defaults to 1920>
    }
 ```
 

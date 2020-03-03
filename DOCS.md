@@ -164,7 +164,9 @@ The parameters for this method call are:
 * `adParameters`: AdParameters as returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks[0].ads[0].adParameters`
 * `slotType`: the type of the current ad pod, `PREROLL` or `MIDROLL`
 * `supportsUserCancelStream`: optional -- set to `true` to enable the [userCancelStream](#usercancelstream) event
-
+* `logLevel` : optional; set the verbosity of true[X] logging, from 0 (mute) to 5 (verbose), defaults to 5
+* `channelWidth` : optional; set the width in pixels of the channel's interface, defaults to 1920
+* `channelHeight` : optional; set the height in pixels of the channel's interface, defaults to 1080
 
 #### `start`
 

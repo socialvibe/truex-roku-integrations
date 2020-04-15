@@ -142,7 +142,6 @@ The true[X] interactive ad component and its rendering logic are distributed as 
 ```brightscript
    m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
    m.tar.observeFieldScoped("event", "handleTarEvent")
-   m.tar.observeFieldScoped("request", "handleTarPlaybackRequest")
 
    m.tar.action = {
        type : "init",

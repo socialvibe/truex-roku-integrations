@@ -133,7 +133,9 @@ This is an outline of `TruexAdRenderer` input and output events. Input events ar
 
 The true[X] interactive ad component and its rendering logic are distributed as part of a component library. It is required for the hosting channel to add a reference to the component library in order for it to be used, for instance via the following reference added to your channel’s main scene:
 
-    <ComponentLibrary id="TruexAdLibrary" uri="http://development.scratch.truex.com.s3.amazonaws.com/roku/TruexAdRenderer-Roku-v1.pkg"/>
+    <ComponentLibrary id="TruexAdLibrary" uri="https://ctv.truex.com/roku/v1_2/release/TruexAdRenderer-Roku-v1.pkg"/>
+
+Note: by default we recommend clients to integrate by linking the component library using the above URL which allows the distribution of performance and functionality updates without requiring a whole new channel release for the client. However a major/minor/build specific component library URL is available on request if it is instead desirable to link to a specific build and not receive updates automatically.
 
 ### TruexAdRenderer Input Events
 

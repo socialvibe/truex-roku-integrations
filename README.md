@@ -23,3 +23,7 @@ The [TruexAdRenderer-Roku Documentation](DOCS.md) outlines how to use the TruexA
 ### Google Ad Manager (GAM) IMA SDK Integration Example
 
 [This repo contains a fully working example](https://github.com/socialvibe/truex-roku-google-ad-manager-reference-app) of a true[X] integration using the Google Ad Manager (GAM) IMA SDK. 
+
+### Generic reference app with stitched in ads and choice card / opt-in screen 
+
+[Demonstrates how to integrate true[X] within a SSAI, abstracting away the ad server in mock objects](https://github.com/socialvibe/truex-roku-reference-app). Also demonstrates how true[X] can accommodate stitched in choice card / opt-in screen)

@@ -12,7 +12,7 @@ With this library, the host player channel can defer to the TruexAdRenderer when
 
 The true[X] interactive ad component and its rendering logic are distributed as part of a component library. It is required for the hosting channel to add a reference to the component library in order for it to be used, for instance via the following reference added to your channel’s main scene:
 
-    <ComponentLibrary id="TruexAdLibrary" uri="http://development.scratch.truex.com.s3.amazonaws.com/roku/TruexAdRenderer-Roku-v1.pkg"/>
+    <ComponentLibrary id="TruexAdLibrary" uri="http://ctv.truex.com/roku/v1_2/release/TruexAdRenderer-Roku-v1.pkg"/>
 
 ## Next Steps
 

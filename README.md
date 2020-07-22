@@ -24,4 +24,4 @@ The [TruexAdRenderer-Roku Documentation](DOCS.md) outlines how to use the TruexA
 
 ### Generic reference app with stitched in ads and choice card / opt-in screen 
 
-[Demonstrates how to integrate true[X] within a SSAI, abstracting away the ad server in mock objects](https://github.com/socialvibe/truex-roku-reference-app). Also demonstrates how true[X] can accommodate stitched in choice card / opt-in screen)
+[Demonstrates how to integrate true[X] within a SSAI, abstracting away the ad server in mock objects](https://github.com/socialvibe/truex-roku-reference-app). Also demonstrates how true[X] can accommodate stitched in choice card / opt-in screen.

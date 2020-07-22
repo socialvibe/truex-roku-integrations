@@ -1,8 +1,6 @@
-# Getting started with true[X] on Roku
+# true[X] Roku Integrations
 
-Documentation and reference apps for true[X]'s Roku-based integration library.
-
-## Overview
+Documentation and reference apps for true[X]'s Roku ad renderer library.
 
 In order to support interactive ads on Roku, true[X] has created a renderer component library that can renderer true[X] ads natively, which interfaces with a hosting channel, as well as its existing ad server and content delivery mechanism (e.g. SSAI).
 

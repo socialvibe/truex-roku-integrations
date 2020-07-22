@@ -144,13 +144,15 @@ Note: by default we recommend clients to integrate by linking the component libr
 ```brightscript
    m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
    m.tar.observeFieldScoped("event", "handleTarEvent")
-   m.tar.observeFieldScoped("request", "handleTarPlaybackRequest")
 
    m.tar.action = {
        type : "init",
        adParameters : "<Ad parameters associative array as returned by SSAI>",
        slotType : "<the type of the current ad pod>",
-       supportsUserCancelStream : <optional; set to true to enable the userCancelStream event>
+       supportsUserCancelStream : <optional; set to true to enable the userCancelStream event>,
+       logLevel : <optional; set the verbosity of true[X] logging, from 0 (mute) to 5 (verbose), defaults to 5>,
+       channelWidth : <optional; set the width in pixels of the channel's interface, defaults to 1920>,
+       channelHeight : <optional; set the height in pixels of the channel's interface, defaults to 1080>
    }
 ```
 
@@ -160,10 +162,24 @@ You may initialize `TruexAdRenderer` early (a few seconds before the next pod ev
 
 The parameters for this method call are:
 
-* `adParameters`: AdParameters as returned by SSAI. In the example of Uplynk, this would correspond to `response.ads.breaks[0].ads[0].adParameters`
+* `adParameters`: AdParameters as returned by SSAI. It is a JSON object and expected to be passed in as a Roku Associative Array. In the example of Uplynk, this would correspond to `response.ads.breaks[0].ads[0].adParameters`.
 * `slotType`: the type of the current ad pod, `PREROLL` or `MIDROLL`
 * `supportsUserCancelStream`: optional -- set to `true` to enable the [userCancelStream](#usercancelstream) event
+* `logLevel` : optional; set the verbosity of true[X] logging, from 0 (mute) to 5 (verbose), defaults to 5
+* `channelWidth` : optional; set the width in pixels of the channel's interface, defaults to 1920
+* `channelHeight` : optional; set the height in pixels of the channel's interface, defaults to 1080
 
+##### adParameters Syntax
+
+The `adParameters` object passed in via the `init` message conveys to `TruexAdRenderer` the ad creative details necessary to driving the interactive experience with the viewer. 
+
+As noted above, it is expected as a JSON object, of a Roku Associative Array type (`roAssociativeArray`). 
+
+This should be populated with the contents of the response from the true[X] `VAST` tag. This can be found included in a `CDATA` section as part of the `VAST` payload's `Ad/Inline/Creatives/Creative/Linear/AdParameters` XML element. See example below:
+
+![trueX ad parameters example](http://ctv.truex.com/docs/truexadrenderer_adparameters_example.png)
+
+Depending on the type of integration, true[X] supports a few different types of payloads passed in. However regardless of how the integration is accomplished, the `adParameters` will always be found in the VAST payload in the location noted above.
 
 #### `start`
 

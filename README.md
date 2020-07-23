@@ -18,6 +18,10 @@ The true[X] interactive ad component and its rendering logic are distributed as 
 
 The [TruexAdRenderer-Roku Documentation](DOCS.md) outlines how to use the TruexAdRenderer, including supported input and output events. 
 
+### true[X] integration within Client-Side Ad Insertion (CSAI) Channel
+
+[This example demonstrates](https://github.com/socialvibe/truex-roku-csai-preload-reference-app) how true[X] may work within a channel that uses client-side ad insertion (CSAI). We also show how preloading of true[X] ads ahead of the pod is achieved. 
+
 ### Google Ad Manager (GAM) IMA SDK Integration Example
 
 [This repo contains a fully working example](https://github.com/socialvibe/truex-roku-google-ad-manager-reference-app) of a true[X] integration using the Google Ad Manager (GAM) IMA SDK. 

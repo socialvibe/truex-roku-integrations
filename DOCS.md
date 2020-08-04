@@ -24,6 +24,7 @@ Version 1.2.0
         * [`adCompleted`](#adcompleted)
         * [`adError`](#aderror)
         * [`noAdsAvailable`](#noadsavailable)
+        * [`adsAvailable`](#adsavailable)
         * [`adFreePod`](#adfreepod)
         * [`userCancelStream`](#usercancelstream) 
     * [`TruexAdRenderer` Output Events -- Informative](#truexadrenderer-output-events----informative)
@@ -281,6 +282,18 @@ The parameters for this event are:
 
 * `errorMessage`: A description of the cause of the error.
 
+#### `adsAvailable`
+
+```brightscript
+   function handleTarEvent(evt as Object) as Void
+       adEvent = evt.getData()
+
+       ' adEvent : {
+       '     type : "adsAvailable"
+       ' }
+```
+
+This is an optional event. This event will fire following a successful ad request and `adFetchCompleted` event to indicate the availability of ad inventory in TruexAdRenderer. This event is the converse of [noAdsAvailable](#noadsavailable) and can be useful to determine when the instance of the renderer is will be able to successfully be started in a pre-loading scenario.
 
 #### `noAdsAvailable`
 

@@ -29,6 +29,7 @@ Version 1.2.0
     * [`TruexAdRenderer` Output Events -- Informative](#truexadrenderer-output-events----informative)
         * [`optIn`](#optin)
         * [`optOut`](#optout) 
+        * [`adsAvailable`](#adsavailable)
         * [`skipCardShown`](#skipcardshown) 
         * [`userCancel`](#usercancel) 
         * [`videoEvent`](#videoevent) 
@@ -96,11 +97,11 @@ This messaging will be displayed to the user for several seconds, after which th
 
 Upon receiving an ad schedule from your SSAI service, you should be able to detect whether or not true[X] is returned in any of the pods. true[X] ads should have `apiFramework` set to `VPAID` or `truex`.
 
-SSAI vendors differ in the way they convey information back about ad schedules to clients. Certain vendors such as Verizon / Uplynk expose API’s which return details about the ad schedule in a JSON object. For other vendors, for instance Google DAI, the true[X] payload will be encapsulated as part of a companion payload on the returned VAST ad. The Roku RAF library also exposes various wrappers which encapsulate vendor specific logic into a simple interface. Please work with your true[X] point of contact if you have difficulty identifying the right approach to detecting the true[X] placeholder, which will be the trigger point for the ad experience.
+SSAI or ad server vendors differ in the way they convey information back about ad schedules to clients. Certain vendors such as Verizon / Uplynk expose API’s which return details about the ad schedule in a JSON object. For other vendors, for instance Google DAI, the true[X] payload will be encapsulated as part of a companion payload on the returned VAST ad. The Roku RAF library also exposes various wrappers which encapsulate vendor specific logic into a simple interface. Please work with your true[X] point of contact if you have difficulty identifying the right approach to detecting the true[X] placeholder, which will be the trigger point for the ad experience.
 
 Once the player reaches a true[X] placeholder, it should pause, instantiate the `TruexAdRenderer` and immediately trigger [`init`](#init) followed by [`start`](#start) events.
 
-Alternatively, you can instantiate and `init` the `TruexAdRenderer` in preparation for an upcoming placeholder. This will give the `TruexAdRenderer` more time to complete its initial ad request, and will help streamline true[X] load time and minimize wait time for your users. Once the player reaches a placeholder, it can then call `start` to notify the renderer that it can display the unit to the user.
+Alternatively, you can instantiate and `init` the `TruexAdRenderer` in preparation for an upcoming placeholder, pre-loading the ad. This will give the `TruexAdRenderer` more time to complete its initial ad request, and will help streamline true[X] load time and minimize wait time for your users. Once the player reaches a placeholder, it can then call `start` to notify the renderer that it can display the unit to the user.
 
 ### Handling Events from TruexAdRenderer
 
@@ -281,7 +282,6 @@ The parameters for this event are:
 
 * `errorMessage`: A description of the cause of the error.
 
-
 #### `noAdsAvailable`
 
 ```brightscript
@@ -365,6 +365,18 @@ The parameters for this event are:
 
 * `userInitiated`: This will be set to `true` if this was actively selected by the user, `false` if the user simply allowed the choice card countdown to expire.
 
+#### `adsAvailable`
+
+```brightscript
+   function handleTarEvent(evt as Object) as Void
+       adEvent = evt.getData()
+
+       ' adEvent : {
+       '     type : "adsAvailable"
+       ' }
+```
+
+This is an optional event. This event will fire following a successful ad request and `adFetchCompleted` event to indicate the availability of ad inventory in TruexAdRenderer. This event is the converse of [noAdsAvailable](#noadsavailable) and can be useful to determine when the instance of the renderer is will be able to successfully be started in a pre-loading scenario.
 
 #### `skipCardShown`
 

@@ -143,7 +143,7 @@ Note: by default we recommend clients to integrate by linking the component libr
 #### `init`
 
 ```brightscript
-   m.tar = m.top.createChild("TruexAdLibrary.TruexAdRenderer")
+   m.tar = m.top.createChild("TruexLibrary:TruexAdRenderer")
    m.tar.observeFieldScoped("event", "handleTarEvent")
 
    m.tar.action = {
